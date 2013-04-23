@@ -25,7 +25,7 @@ namespace Mall.Models
             context.Brand.Add(new Brand { IsShow=true, logo="", Name="壁彩九天", SortOrder=1, Summary="壁彩九天" });
 
             context.Suppliers.Add(new Suppliers { IsCheck=true, Name="潘家园", Summary="潘家园" });
-            context.Frames.Add(new Frames { FramesID=1, Enabled=false, Img="", Name="无边框", Price=decimal.Zero, Summary="没有装框"});
+            context.Frames.Add(new Frames { ID=0, Enabled=false, Img="", Name="无边框", Price=decimal.Zero, Summary="没有装框"});
             base.Seed(context);
         }
     }

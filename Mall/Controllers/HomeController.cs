@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Mall.Models.ViewModels;
 using Mall.Models;
+using Mall.ViewModels;
 namespace Mall.Controllers
 {
     public class HomeController : Controller
@@ -17,10 +17,10 @@ namespace Mall.Controllers
 
         public ActionResult SalerRoom()
         {
-            IList<Mall.Models.ViewModels.SalerRoomGoods> modelList = new List<Mall.Models.ViewModels.SalerRoomGoods>();
+            IList<SalerRoomGoods> modelList = new List<SalerRoomGoods>();
             db.Goods.OrderByDescending(m => m.ID).ToList().ForEach(g =>
             {
-                modelList.Add(new Models.ViewModels.SalerRoomGoods(g, db.PaintSizes.Where(p => p.GoodsID == g.ID).ToList()));
+                modelList.Add(new SalerRoomGoods(g, db.PaintSizes.Where(p => p.GoodsID == g.ID).ToList()));
             });
             return View(modelList);
         }
@@ -35,7 +35,7 @@ namespace Mall.Controllers
 
         public ActionResult GetPaintSize(int id)
         {
-            PaintSizes model=db.PaintSizes.First(p=>p.PaintSizesID==id);
+            PaintSizes model=db.PaintSizes.First(p=>p.ID==id);
             return Json(new
             {
                 Width=model.Width,

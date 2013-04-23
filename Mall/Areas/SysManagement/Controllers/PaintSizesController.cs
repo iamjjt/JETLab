@@ -25,7 +25,7 @@ namespace Mall.Areas.SysManagement.Controllers
                 numPerPage = 20;
             //var allList = db.Brand;
 
-            var allList = db.PaintSizes.OrderByDescending(m => m.PaintSizesID);
+            var allList = db.PaintSizes.OrderByDescending(m => m.ID);
             var model = new PaginatedList<PaintSizes>(allList, pageNum.Value, numPerPage.Value);
             //model.TotalCount = db.Brand.Count();
 

@@ -16,11 +16,13 @@ namespace Mall.Models
         public int GoodsId { get; set; }
         public System.DateTime Pubdate { get; set; }
         public virtual Goods Good { get; set; }
-        //public int PaintSizesId { get; set; }
+        public int PaintSizeId { get; set; }
+        [ForeignKey("PaintSizeId")]
         public virtual PaintSizes PaintSize { get; set; }
         public string Others { get; set; }
         public bool IsFrame { get; set; }
-        //public int FramesId { get; set; }
+        public int FrameId { get; set; }
+        [ForeignKey("FrameId")]
         public virtual Frames Frame { get; set; }
     }
 }

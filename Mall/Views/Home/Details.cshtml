@@ -1,4 +1,4 @@
-﻿@model Mall.Models.ViewModels.SalerRoomGoods
+﻿@model Mall.ViewModels.SalerRoomGoods
 
 @{
     ViewBag.Title = "Details";
@@ -66,7 +66,7 @@
                   
                   @foreach (var item in Model.PrintSize)
                   {
-                  <tr pid="@item.PaintSizesID" class="printSize">
+                  <tr pid="@item.ID" class="printSize">
                     <td height="20">@item.Width×@item.Height cm</td>
                     <td>@item.Cycle</td>
                     <td>￥@item.Price</td>

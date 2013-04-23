@@ -30,10 +30,17 @@ namespace Mall.Controllers
         {
             //这里，需要赋的值有，商品编号，是否装框，框id，尺寸id
             var cart = ShoppingCart.GetCart(this.HttpContext);
-            Mall.Models.ViewModels.ShoppingCartPaintItem paintItem = new Mall.Models.ViewModels.ShoppingCartPaintItem(Convert.ToInt32(fc["GoodsId"]),
-                Convert.ToInt32(fc["PaintSizeId"]),Convert.ToBoolean(fc["IsFrame"]),Convert.ToInt32(fc["FrameId"]));
+           // Mall.Models.ViewModels.ShoppingCartPaintItem paintItem = new Mall.Models.ViewModels.ShoppingCartPaintItem(Convert.ToInt32(fc["GoodsId"]),
+              //  Convert.ToInt32(fc["PaintSizeId"]),Convert.ToBoolean(fc["IsFrame"]),Convert.ToBoolean(fc["IsFrame"])?Convert.ToInt32(fc["FrameId"]):1);
 
-            cart.AddToCart(paintItem);
+            Cart cartItem = new Cart {
+                GoodsId = Convert.ToInt32(fc["GoodsId"]),
+                IsFrame = Convert.ToBoolean(fc["IsFrame"]),
+                PaintSizeId = Convert.ToInt32(fc["PaintSizeId"]),
+                FrameId = Convert.ToBoolean(fc["IsFrame"]) ? Convert.ToInt32(fc["FrameId"]) : 1
+            };
+
+            cart.AddToCart(cartItem);
             return RedirectToAction("Index");
         }
 

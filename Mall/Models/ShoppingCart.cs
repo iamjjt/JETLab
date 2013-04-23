@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Mall.Models.ViewModels;
+//using Mall.Models.ViewModels;
 namespace Mall.Models
 {
     public class ShoppingCart
@@ -27,45 +27,27 @@ namespace Mall.Models
         {
             return GetCart(controller.HttpContext);
         }
-
-        public void AddToCart(ShoppingCartPaintItem paint)
+         //public void AddToCart(ShoppingCartPaintItem paint)
+        public void AddToCart(Cart paint)
         {
             //取得购物项
             var cartItem = db.Carts.SingleOrDefault(
-                c => c.CartId == ShoppingCartId && c.GoodsId == paint.GoodsID
+                c => c.CartId == ShoppingCartId && c.GoodsId == paint.GoodsId
              );
 
             if (cartItem == null)
             {
-                if (paint.IsFrame)
+                cartItem = new Cart
                 {
-                    cartItem = new Cart
-                    {
-                        GoodsId = paint.GoodsID,
-                        CartId = ShoppingCartId,
-                        Count = 1,
-                        Pubdate = DateTime.Now,
-                       // FramesId = paint.FrameId,
-                       Frame=new Frames{ FramesID=paint.FrameId},
-                        IsFrame = paint.IsFrame,
-                        //PaintSizesId = paint.PaintSizeId,
-                        PaintSize=new PaintSizes{ PaintSizesID=paint.PaintSizeId},
-                        Others = ""
-                    };
-                }
-                else
-                {
-                    cartItem = new Cart
-                    {
-                        GoodsId = paint.GoodsID,
-                        CartId = ShoppingCartId,
-                        Count = 1,
-                        Pubdate = DateTime.Now,
-                        IsFrame = paint.IsFrame,
-                        // PaintSizesId = paint.PaintSizeId
-                        PaintSize = new PaintSizes { PaintSizesID = paint.PaintSizeId },
-                    };
-                }
+                    GoodsId = paint.GoodsId,
+                    CartId = ShoppingCartId,
+                    Count = 1,
+                    Pubdate = DateTime.Now,
+                    FrameId = paint.FrameId,
+                    IsFrame = paint.IsFrame,
+                    PaintSizeId = paint.PaintSizeId,
+                    Others = ""
+                };
                 db.Carts.Add(cartItem);
             }
             else

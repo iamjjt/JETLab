@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Mall.Models
 {
+    [Bind(Exclude = "ID")]
     public class Frames
     {
-        public int FramesID { get; set; }
+        [Key]
+        public int ID { get; set; }
         public string Name { get; set; }
         public string Summary { get; set; }
         public decimal Price { get; set; }

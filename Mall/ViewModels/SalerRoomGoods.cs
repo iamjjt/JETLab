@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Mall.Models;
 
-namespace Mall.Models.ViewModels
+namespace Mall.ViewModels
 {
     public class SalerRoomGoods
     {

@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Mvc;
 
 namespace Mall.Models
 {
+    [Bind(Exclude = "ID")]
     public class PaintSizes
     {
+        [Key]
         [Display(Name = "尺寸编号")]
-        public int PaintSizesID { get; set; }
+        public int ID { get; set; }
         [Display(Name="商品编号")]
         public int GoodsID { get; set; }
         [Display(Name = "作品宽度")]
