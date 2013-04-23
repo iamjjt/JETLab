@@ -35,6 +35,21 @@ namespace Mall.Models
         /// </summary>
         public int RankPoints { get; set; }
 
+
+        public virtual ICollection<UserAddress> Addresses { get; set; }
+
+        public DateTime RegTime { get; set; }
+        public DateTime LastLogin { get; set; }
+        public DateTime LastUpdateTime { get; set; }
+        public string LastIP { get; set; }
+
+        public int Flag { get; set; }
+        public string Alias { get; set; }
+        public string qq { get; set; }
+        public string Telphone { get; set; }
+        public string Mobile { get; set; }
+        public bool IsValidate { get; set; }
+        public decimal CreditLine { get; set; }
     }
 
     public class UserAddress
