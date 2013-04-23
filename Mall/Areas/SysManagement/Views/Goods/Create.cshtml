@@ -1,0 +1,314 @@
+﻿@model Mall.Models.Goods
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@*<form method="post" action="@Url.Action("Create")" >*@
+@using(Html.BeginForm()){
+    @Html.ValidationSummary(true)
+
+    <div class="tabs">
+      <div class="tabsHeader">
+            <div class="tabsHeaderContent">
+                  <ul>
+                        <li class="selected"><a href="#"><span>通用信息</span></a></li>
+                        <li><a href="#"><span>详细描述</span></a></li>
+                        <li><a href="#"><span>商品属性</span></a></li>
+                        <li><a href="#"><span>商品相册</span></a></li>
+                        <li><a href="#"><span>关联商品</span></a></li>
+                        <li><a href="#"><span>配    件</span></a></li>
+                  </ul>
+            </div>
+      </div>
+
+      <div class="tabsContent" @*style="height:300px;"*@>
+        @*基本信息*@
+        <div  class="pageFormContent lineFormContent">
+            @*商品分类*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.CAID)
+                @Html.DropDownList("CAID",(List<SelectListItem>)ViewBag.CategoryList)
+            </p>
+
+            @*商品编号*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.NO)
+                @Html.EditorFor(model => model.NO)
+                <span>如果不填，则系统自动生成货号</span>
+            </p>
+
+            @*商品名称*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Name)
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </p>
+
+            @*标题样式*@
+            <p class="editor-field" style=" display:none;">
+                @Html.LabelFor(model => model.NameStyle)
+                @Html.TextBoxFor(model => model.NameStyle)
+                @Html.ValidationMessageFor(model => model.NameStyle)
+            </p>
+
+            @*点击*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Hits)
+                @Html.TextBoxFor(model => model.Hits, new { Value = "0" })
+                @Html.ValidationMessageFor(model => model.Hits)
+            </p>
+            @*品牌*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.BrandID)
+                @*@Html.EditorFor(model => model.BrandID)*@
+                @Html.DropDownList("BrandID",(List<SelectListItem>)ViewBag.BrandList)
+                @Html.ValidationMessageFor(model => model.BrandID)
+            </p>
+
+            @*供应商*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.ProviderName)
+                @*@Html.EditorFor(model => model.ProviderName)*@
+                @Html.DropDownList("ProviderName", (List<SelectListItem>)ViewBag.SuppliersList)
+                @Html.ValidationMessageFor(model => model.ProviderName)
+            </p>
+        
+             @*缩略图*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Thumb)
+                @Html.EditorFor(model => model.Thumb)
+                @Html.ValidationMessageFor(model => model.Thumb)
+            </p>
+
+            @*大图*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Img)
+                @Html.EditorFor(model => model.Img)
+                @Html.ValidationMessageFor(model => model.Img)
+            </p>
+
+            @*是否实体商品*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsReal)
+                @Html.EditorFor(model => model.IsReal)
+                @Html.ValidationMessageFor(model => model.IsReal)
+            </p>
+
+            @*市场价*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.MarketPrice)
+                @Html.EditorFor(model => model.MarketPrice)
+                @Html.ValidationMessageFor(model => model.MarketPrice)
+            </p>
+
+            @*商城价*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.MallPrice)
+                @Html.EditorFor(model => model.MallPrice)
+                @Html.ValidationMessageFor(model => model.MallPrice)
+            </p>
+
+            @*是否促销*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsPromote)
+                <input id="IsPromote" type="checkbox" name="IsPromote" />
+            </p>
+            @*促销价格*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.PromotePrice)
+                @Html.TextBoxFor(model => model.PromotePrice, new { disabled = true, @class = "promote" })
+            </p>
+
+            @*促销开始时间*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.PromoteStartDate)
+                @*@Html.EditorFor(model => model.PromoteStartDate)*@
+                @*@Html.TextBoxFor(model => model.PromoteStartDate, new { @class = "date promote", disabled = true, datefmt = "yyyy-MM-dd HH:mm:ss" })*@
+                <input type="text" name="PromoteStartDate" class="date promote" disabled="disabled"  />
+                <a class="inputDateButton" href="javascript:;">选择</a>
+            </p>
+
+            @*促销结束时间*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.PromoteEndDate)
+                @*@Html.EditorFor(model => model.PromoteEndDate)*@
+                @*@Html.TextBoxFor(model => model.PromoteEndDate, new { @class = "date promote", disabled = true, datefmt = "yyyy-MM-dd HH:mm:ss" })*@
+                <input type="text" name="PromoteEndDate" class="date promote" disabled="disabled"/>
+                <a class="inputDateButton" href="javascript:;">选择</a>
+            </p>
+
+            @*积分*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Integral)
+                @Html.TextBoxFor(model => model.Integral, new { Value="0"})
+                @Html.ValidationMessageFor(model => model.Integral)
+            </p>
+        
+        </div>
+
+        @*详细信息*@
+        <div>
+            @* 详细信息*@
+            <p class="editor-field">
+            @Html.LabelFor(model => model.Details)
+            @*@Html.EditorFor(model => model.Details)*@
+            @Html.TextAreaFor(model => model.Details, new { @class = "editor" })
+            @Html.ValidationMessageFor(model => model.Details)
+        </p>
+            </div>
+
+        @*商品属性 *@
+        <div  class="pageFormContent">
+            @*库存*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Number)
+                @Html.TextBoxFor(model => model.Number, new { @Value = "1" })
+                @Html.ValidationMessageFor(model => model.Number)
+            </p>
+
+            @*重量*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Weight)
+                @Html.TextBoxFor(model => model.Weight, new { @Value = "0" })
+                @Html.ValidationMessageFor(model => model.Weight)
+            </p>
+            @*报警数量*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.WarnNumber)
+                @Html.TextBoxFor(model => model.WarnNumber, new { @Value = "0" })
+                @Html.ValidationMessageFor(model => model.WarnNumber)
+            </p>
+            @*关键字*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Keywords)
+                @Html.EditorFor(model => model.Keywords)
+                @Html.ValidationMessageFor(model => model.Keywords)
+            </p>
+
+            @*简述*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Summary)
+                @Html.EditorFor(model => model.Summary)
+                @Html.ValidationMessageFor(model => model.Summary)
+            </p>
+
+            @*扩展代码*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.ExtensionCode)
+                @Html.EditorFor(model => model.ExtensionCode)
+                @Html.ValidationMessageFor(model => model.ExtensionCode)
+            </p>
+
+            @*是否上架*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsOnSale)
+                <input id="IsOnSale" type="checkbox" name="IsOnSale" />
+            </p>
+
+            @*是否单独销售*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsAloneSale)
+                <input id="IsAloneSale" type="checkbox" name="IsAloneSale" />
+                @Html.ValidationMessageFor(model => model.IsAloneSale)
+            </p>
+
+
+            @*是否精品*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsBest)
+                @Html.EditorFor(model => model.IsBest)
+                @Html.ValidationMessageFor(model => model.IsBest)
+            </p>
+
+            @*是否新品*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsNew)
+                @Html.EditorFor(model => model.IsNew)
+                @Html.ValidationMessageFor(model => model.IsNew)
+            </p>
+
+            @*是否热销*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.IsHot)
+                @Html.EditorFor(model => model.IsHot)
+                @Html.ValidationMessageFor(model => model.IsHot)
+            </p>
+
+            @*商品类型*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Type)
+                @Html.EditorFor(model => model.Type)
+                @Html.ValidationMessageFor(model => model.Type)
+            </p>
+
+            @*商品备注*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.Remarks)
+                @Html.EditorFor(model => model.Remarks)
+                @Html.ValidationMessageFor(model => model.Remarks)
+            </p>
+
+            @*购买奖励积分*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.GiveIntegral)
+                @Html.EditorFor(model => model.GiveIntegral)
+                @Html.ValidationMessageFor(model => model.GiveIntegral)
+            </p>
+            @*排序名称*@
+            <p class="editor-field">
+                @Html.LabelFor(model => model.SortOrder)
+                @Html.TextBoxFor(model => model.SortOrder, new { Value="100" })
+                @Html.ValidationMessageFor(model => model.SortOrder)
+            </p>
+        </div>
+            @*商品相册*@
+            <div>
+            
+            </div>
+            @*关联商品*@
+            <div>
+            
+            </div>
+            @*配件*@
+            <div>
+            
+            </div>
+      </div>
+      <div class="tabsFooter">
+            <div class="tabsFooterContent"></div>
+      </div>
+
+</div>
+
+
+    
+<div class="pageFormContent">
+        <p>
+            <input type="submit" value="添加" />
+        </p>
+</div>
+    
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#IsPromote").click(function () {
+            var isPromote = $(this).attr("checked");
+//            alert(isPromote);
+            togglePromote(isPromote);
+        });
+    })
+    function togglePromote(isPromote) {
+        if (isPromote) {
+            $(".promote").attr({ "disabled": false });
+        } else {
+            $(".promote").attr({ "disabled": true });
+        }
+    }  
+</script>
+

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Mall.Models.GoodsType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="panelBar">
+		<ul class="toolBar">
+			<li><a target="dialog" rel="addGoodType" href="@Url.Action("Create")" class="add"><span>添加</span></a></li>
+			<li class=""><a title="确定要删除吗?" target="ajaxTodo" href="demo/common/ajaxDone.html?uid={sid_user}" class="delete"><span>删除</span></a></li>
+			<li class=""><a target="navTab" href="demo_page4.html?uid={sid_user}" class="edit"><span>修改</span></a></li>
+			<li class="line">line</li>
+			<li class=""><a title="实要导出这些记录吗?" targettype="navTab" target="dwzExport" href="demo/common/dwz-team.xls" class="icon"><span>导出EXCEL</span></a></li>
+		</ul>
+	</div>
+<table class="table">
+    <tr>
+        <th width="200">
+            Name
+        </th>
+        <th width="60">
+            Enabled
+        </th>
+        <th width="80">
+            Group
+        </th>
+        <th width="200"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Enabled)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Group)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })*@
+            <div>
+                <a class="btnDel" href="@Url.Action("Details", new { id = item.ID })" target="ajaxTodo" title="删除">删除</a>
+                <a class="btnEdit" href="@Url.Action("Edit", new { id = item.ID })" target="navTab" title="编辑">编辑</a>
+            </div>
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:#b0a891; width:980px; margin:0 auto; color:#584a3f; font-size:12px; }
+a,a:link{ color:#584a3f; text-decoration:none;}
+.navi{ background:#7e6b5a; height:60px; padding-left:40px;}
+.navi a{ display:block; height:60px; line-height:60px; background:url(../images/public/icon-01.jpg) no-repeat; float:left; padding-left:50px; margin-left:30px; }
+.category{ background:#ccbfae; height:24px; text-align:center;}
+.category a{ height:24px; line-height:24px; margin:0 10px;}
+.bor-7e6b5a{ border:1px solid #7e6b5a;}
+
+#container{ background:#ffffff;padding-bottom:20px;}
+.dot-bot-line{ border-bottom:1px dashed #6f6f6f;}
+.footer{  border:1px solid #dcdcdc; padding-bottom:1px; padding-top:1px; padding-bottom:1px; margin-top:20px; margin-bottom:20px;}
+.footer a{  color:#7d7d7d;}
+.txt574841{ color:#574841;}
+.txtff6567{ clear:#ff6567;}
+.bgEEE{ background:#eeeeee;}
+.bdRed{ border:1px dotted red;}
+
+a.top,a.top:hover{background:url(../images/other/icon-bg.png) -3px -76px no-repeat; display:block; width:57px; height:16px; float:left; text-align:center; line-height:16px; margin-right:10px;}
+
+.tit-02{ border:1px solid #c1c1c1; background-color:#f1f1f1;}

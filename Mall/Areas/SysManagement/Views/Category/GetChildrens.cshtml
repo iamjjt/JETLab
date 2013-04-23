@@ -1,0 +1,38 @@
+﻿
+   @* @foreach (var item in Model)
+    {
+       <li id="@item.Key.ID">
+           @if (item.Value != 0)
+           {
+            <a class="findBar" cid="@item.Key.ID" pid="@item.Key.PID" href="#">+</a> 
+           }
+           else
+           {
+           <a class="findBar" cid="@item.Key.ID" pid="@item.Key.PID" href="#">-</a>
+           }
+           <span class="name">@item.Key.CaName</span> 
+           @Html.ActionLink("添加", "Create", new { id = @item.Key.ID })
+           @Html.ActionLink("修改", "Edit", new { id = @item.Key.ID })
+       </li>
+    }*@
+    @foreach (var item in Model)
+    {
+       <tr id="@item.Key.ID" >
+           <td style=" width:300px;"> @for (int i = 0; i <item.Key.Level; i++)
+           {
+               <div style='width:20px; float:left;'>&nbsp;</div>
+           }@if (item.Value != 0)
+                {
+            <a class="findBar" cid="@item.Key.ID" pid="@item.Key.PID" href="#">+</a>
+                }
+                else
+                {
+            <a class="findBar" cid="@item.Key.ID" pid="@item.Key.PID" href="#">-</a>
+                }<span class="name">@item.Key.CaName</span> </td>
+           <td>
+           <a href="@Url.Action("Edit", new { id = @item.Key.ID })" class="button" target="dialog"><span>编辑</span></a>
+           <a href="@Url.Action("Delete", new { id = @item.Key.ID })" title="您确定删除吗" style=" margin-left:5px;" class="button" target="ajaxTodo"><span>删除</span></a>
+           <a href="@Url.Action("Create")" style=" margin-left:5px;" class="button"  target="dialog"><span>添加</span></a>
+           </td>
+       </tr>
+    }

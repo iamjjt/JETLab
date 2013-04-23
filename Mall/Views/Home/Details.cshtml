@@ -1,0 +1,227 @@
+﻿@model Mall.Models.ViewModels.SalerRoomGoods
+
+@{
+    ViewBag.Title = "Details";
+}
+
+@section HeadStyle{
+    <link href="@Url.Content("~/css/saleroom.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/css/buy.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/css/jquery.jqzoom.css")" rel="stylesheet" type="text/css" />
+}
+@section HeadScript{
+    <script src="@Url.Content("~/Scripts/jquery.LoadImage.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/scripts/jquery.jqzoom-core.js")"></script>
+}
+
+@section PagePath{
+<!--path:start-->
+<div class="page-path">
+    <a href="#" class="homeLink"></a><span>--</span><a href="#" class="linkOne">馆藏高仿</a><span>--</span><a href="#" class="linkTwo">山水</a><span>--</span><a href="#" class="linkTwo">《金藻图》明·缪辅</a>
+</div>
+<!--path:end-->
+}
+<div id="container">
+<div class="buy">
+    	<!--proAttr:start-->
+        
+    	<div class="pro-img fl">
+        	<table>
+            <tr>
+            	<td width="440" height="500" align="center" valign="middle">
+                <a href="@Url.Content("~")@Model.Paint.Img" class="t-img" title="@Model.Paint.Name"><img src="@Url.Content("~")@Model.Paint.Thumb" /></a>
+                </td>
+            </tr>
+            </table>
+        </div>
+        <div class="pro-attr fl">
+        	<table class="mb50" width="100%" border="0">
+              <tr>
+                <td height="35" class="f14 fb txt574841">@Model.Paint.Name</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>@Model.Paint.Summary</td>
+                <td>编号#：@Model.Paint.NO</td>
+              </tr>
+            </table>
+			
+<table class="mb50" width="100%" border="0">
+              <tr>
+                <td width="200" height="35" class="f14 fb txt574841">尺寸</td>
+                <td class="f14 fb txt574841">价格</td>
+              </tr>
+              <tr>
+                <td id="curSize">@Model.PrintSize.First().Width.ToString()×@Model.PrintSize.First().Height.ToString()cm</td>
+                <td><span id="curPrice" class="txt-red fb txtRed">￥@Model.PrintSize.First().Price.ToString()</span></td>
+              </tr>
+            </table>
+            
+            <table class="mb50" width="400" border="0">
+                  <tr>
+                    <td height="30" class="txt574841 fb f14">7种尺寸可选</td>
+                    <td width="100" class="txt574841 fb f14">制作周期</td>
+                    <td width="50" class="txt574841 fb f14">费用</td>
+                  </tr>
+                  
+                  @foreach (var item in Model.PrintSize)
+                  {
+                  <tr pid="@item.PaintSizesID" class="printSize">
+                    <td height="20">@item.Width×@item.Height cm</td>
+                    <td>@item.Cycle</td>
+                    <td>￥@item.Price</td>
+                  </tr>   
+                  }
+
+                </table>
+				<form method="post" id="cartForm" action="@Url.Action("AddToCart","ShoppingCart")">
+                <input type="hidden" id="GoodsID" name="GoodsID" value="@Model.Paint.ID" />
+                <input type="hidden" id="isFrame" name="IsFrame" value="false" />
+                <input type="hidden" id="FrameId" name="FrameId" value="1" />
+                <input type="hidden" id="PaintSizeId" name="PaintSizeId" value="1" />
+                <input type="hidden" id="Others" name="Others" value="0" />
+                <table class="mb50 buy-bar" width="100%" border="0">
+					<tr>
+                    	<td><a class="cart" id="addToCart" href="#">购物车</a></td>
+                    	<td><a href="#">Frame It</a></td>
+                    	<td><a href="#">加入收藏</a></td>
+                    	<td><a href="#">浏览大图</a></td>
+                    	<td><a href="#">放入实景</a></td>
+                    </tr>
+                </table>
+               </form>
+        </div>
+        <div class="cl"></div>
+        <!--proAttr:end-->
+        <!--frame:start-->
+        <div class="frame mt20">
+       	  <h3 class="tit-01"><span>装框真实效果</span></h3>
+            <table width="100%" class="mt15" border="0">
+              <tr>
+                <td height="305" style="border-right:1px dotted #7d7d7d; border-bottom:1px dotted #7d7d7d;"><table width="440" border="0">
+                  <tr>
+                    <td align="center"><a href="#"><img src="@Url.Content("~/res/08.jpg")" width="128" height="202" /></a></td>
+                    <td align="center"><img src="@Url.Content("~/res/f01.jpg")" width="91" height="91" /></td>
+                    <td align="center"><img src="@Url.Content("~/res/f02.jpg")" alt="" width="91" height="91" /></td>
+                  </tr>
+                  <tr>
+                    <td height="60" colspan="3" align="center"><img src="@Url.Content("~/images/other/num-01.gif")" width="47" height="47" /></td>
+                  </tr>
+                </table></td>
+                <td style=" border-bottom:1px dotted #7d7d7d;"><table width="440" border="0">
+                  <tr>
+                    <td align="center"><a href="#"><img src="@Url.Content("~/res/09.jpg")" alt="" width="109" height="202" /></a></td>
+                    <td align="center"><img src="@Url.Content("~/res/f03.jpg")" alt="" width="91" height="91" /></td>
+                    <td align="center"><img src="@Url.Content("~/res/f04.jpg")" alt="" width="91" height="91" /></td>
+                  </tr>
+                  <tr>
+                    <td height="60" colspan="3" align="center"><img src="@Url.Content("~/images/other/num-02.gif")" alt="" width="47" height="47" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr>
+                <td height="305" bgcolor="eeeeee" style="border-right:1px dotted #7d7d7d;"><table width="440" border="0">
+                  <tr>
+                    <td align="center"><a href="#"><img src="@Url.Content("~/res/10.jpg")" alt="" width="153" height="202" /></a></td>
+                    <td align="center"><img src="@Url.Content("~/res/f05.jpg")" alt="" width="91" height="90" /></td>
+                    <td align="center"><img src="@Url.Content("~/res/f06.jpg")" alt="" width="91" height="90" /></td>
+                  </tr>
+                  <tr>
+                    <td height="60" colspan="3" align="center"><img src="@Url.Content("~/images/other/num-03.gif")" alt="" width="47" height="47" /></td>
+                  </tr>
+                </table></td>
+                <td bgcolor="eeeeee"><table width="440" border="0">
+                  <tr>
+                    <td align="center"><a href="#"><img src="@Url.Content("~/res/11.jpg")" alt="" width="153" height="202" /></a></td>
+                    <td align="center"><img src="@Url.Content("~/res/f07.jpg")" alt="" width="91" height="90" /></td>
+                    <td align="center"><img src="@Url.Content("~/res/f08.jpg")" alt="" width="91" height="90" /></td>
+                  </tr>
+                  <tr>
+                    <td height="60" colspan="3" align="center"><img src="@Url.Content("~/images/other/num-04.gif")" alt="" width="47" height="47" /></td>
+                  </tr>
+                </table></td>
+              </tr>
+            </table>
+			<div class="cl"></div>
+        </div>
+        
+        <div class="mt20">
+       	<h3 class="tit-01"><span>您可能会喜欢呦</span></h3>
+          <ul class="ul-01">
+           	  <li>
+                  <a href="#"><img src="@Url.Content("~/res/12.jpg")" /></a>
+                  <p><a href="#">墨竹图 宋·文同</a></p>
+              </li>
+           	  <li>
+                  <a href="#"><img src="@Url.Content("~/res/13.jpg")" /></a>
+                  <p><a href="#">墨竹图 宋·文同</a></p>
+              </li>
+           	  <li>
+                  <a href="#"><img src="@Url.Content("~/res/14.jpg")"  /></a>
+                  <p><a href="#">墨竹图 宋·文同</a></p>
+              </li>
+           	  <li>
+                  <a href="#"><img src="@Url.Content("~/res/15.jpg")" /></a>
+                  <p><a href="#">墨竹图 宋·文同</a></p>
+              </li>
+          </ul>
+          <div class="cl"></div>
+        </div>
+		<div><a href="#" style="float:right;" class="top"></a></div>
+        <!--frame:end-->
+        <div class="cl"></div>
+    </div>
+
+<script type="text/javascript">
+
+    $(function () {
+        $(".printSize").click(function () {
+            var pid = $(this).attr("pid");
+            $.getJSON("@Url.Action("GetPaintSize")/"+pid,function(json){
+//                alert(json.Width+json.Height);
+                var size=json.Width+" × " + json.Height +" cm";
+                $("#curSize").html(size);
+                $("#curPrice").html("￥"+json.Price);
+                $("#")
+            });
+            $(".printSize").removeClass("bdRed");
+            $(this).addClass("bdRed");
+        });
+        $("#addToCart").click(function(){
+            $("#cartForm").submit();
+            return false;
+        });
+    })
+</script>
+@section FooterScript{
+
+$(function() {
+            //图片垂直居中
+           /* $(".pro-img .t-img img").each(function() {
+                src = $(this).attr("src");
+                $(this).LoadImage(true, 314, 479, "@Url.Content("~/images/other/loading.gif")");
+            })*/
+            $(".ul-01 img").each(function() {
+                src = $(this).attr("src");
+                $(this).LoadImage(true, 98, 150, "@Url.Content("~/images/other/loading.gif")");
+            })
+			
+			//jqzoom
+			$(document).ready(function(){  
+				var options = {  
+						zoomType: 'standard',  
+						lens:true,  
+						preloadImages: true,  
+						alwaysOn:false,  
+						zoomWidth: 450,  
+						zoomHeight: 450  
+						//...MORE OPTIONS  
+				};  
+				$('.t-img').jqzoom(options);  
+			}); 
+            //隔行变色
+            $(".printSize:even").addClass("bgEEE");
+            
+        })
+
+}

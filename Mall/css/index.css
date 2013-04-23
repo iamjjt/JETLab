@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.line-1{ padding-left:10px; padding-bottom:10px; }
+.line1-dl{ display:block; width:450px; height:348px; float:left; margin-left:20px;}
+.line1-dl dt{ height:35px; line-height:35px;}
+.line1-dl-tit{ font-size:16px; font-family:'Microsoft YaHei';font-weight:bold;   color:#5b493f; }
+.line1-dl-frame{ margin-left:10px; color:#024883; font-weight:bold; font-style:italic;}
+.line-box{}
+.line-box-tit{ float:left; width:23px; height:135px; display:block; background-color:#7e6b5a; border-top:8px solid #7c0000; text-align:center; margin-left:15px; margin-top:10px; }
+.line-box-tit span{ display:block; height:20px;}
+.line-box-tit a{font-weight:bold; color:#fff;}
+.line-box-con{ display:block; border:1px solid #c9c6bf; float:left; width:924px;}
+.h330{ height:330px;}
+.w460{}
+.eg-item{}
+.eg-item a.img{ float:left; display:block; width:325px; height:245px; line-height:245px; text-align:center; background:url(../images/index/frame1.jpg) no-repeat; margin-top:20px; margin-left:20px;}
+.eg-item a.img img{ margin-top:12px;}
+.eg-item dl{ width:497px; margin-top:20px; margin-left:40px; border-bottom:1px solid #c7c7bf; padding-bottom:10px;}
+.eg-item dl dt{ display:block; width:22px;  float:left; }
+.eg-item dl dd{ display:block; float:left; width:460px;  line-height:26px; margin-left:10px; text-align:left;}
+.eg-item dl dd p{ margin-left:20px; margin-right:20px;}

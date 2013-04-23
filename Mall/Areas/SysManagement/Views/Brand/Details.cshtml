@@ -1,0 +1,40 @@
+﻿@model Mall.Models.Brand
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Brand</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">logo</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.logo)
+    </div>
+
+    <div class="display-label">Summary</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Summary)
+    </div>
+
+    <div class="display-label">SortOrder</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SortOrder)
+    </div>
+
+    <div class="display-label">IsShow</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsShow)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

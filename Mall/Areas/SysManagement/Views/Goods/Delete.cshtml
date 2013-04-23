@@ -1,0 +1,198 @@
+﻿@model Mall.Models.Goods
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Goods</legend>
+
+    <div class="display-label">CAID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CAID)
+    </div>
+
+    <div class="display-label">NO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NO)
+    </div>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">NameStyle</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NameStyle)
+    </div>
+
+    <div class="display-label">Hits</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Hits)
+    </div>
+
+    <div class="display-label">BrandID</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BrandID)
+    </div>
+
+    <div class="display-label">ProviderName</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ProviderName)
+    </div>
+
+    <div class="display-label">Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Number)
+    </div>
+
+    <div class="display-label">Weight</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Weight)
+    </div>
+
+    <div class="display-label">MarketPrice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MarketPrice)
+    </div>
+
+    <div class="display-label">MallPrice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MallPrice)
+    </div>
+
+    <div class="display-label">PromotePrice</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PromotePrice)
+    </div>
+
+    <div class="display-label">PromoteStartDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PromoteStartDate)
+    </div>
+
+    <div class="display-label">PromoteEndDate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PromoteEndDate)
+    </div>
+
+    <div class="display-label">WarnNumber</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WarnNumber)
+    </div>
+
+    <div class="display-label">Keywords</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Keywords)
+    </div>
+
+    <div class="display-label">Summary</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Summary)
+    </div>
+
+    <div class="display-label">Details</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Details)
+    </div>
+
+    <div class="display-label">Thumb</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Thumb)
+    </div>
+
+    <div class="display-label">Img</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Img)
+    </div>
+
+    <div class="display-label">IsReal</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsReal)
+    </div>
+
+    <div class="display-label">ExtensionCode</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ExtensionCode)
+    </div>
+
+    <div class="display-label">IsOnSale</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsOnSale)
+    </div>
+
+    <div class="display-label">IsAloneSale</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsAloneSale)
+    </div>
+
+    <div class="display-label">Integral</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Integral)
+    </div>
+
+    <div class="display-label">AddTime</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.AddTime)
+    </div>
+
+    <div class="display-label">SortOrder</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SortOrder)
+    </div>
+
+    <div class="display-label">IsDelete</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsDelete)
+    </div>
+
+    <div class="display-label">IsBest</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsBest)
+    </div>
+
+    <div class="display-label">IsNew</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsNew)
+    </div>
+
+    <div class="display-label">IsHot</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsHot)
+    </div>
+
+    <div class="display-label">IsPromote</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsPromote)
+    </div>
+
+    <div class="display-label">LastUpdate</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.LastUpdate)
+    </div>
+
+    <div class="display-label">Type</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Type)
+    </div>
+
+    <div class="display-label">Remarks</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Remarks)
+    </div>
+
+    <div class="display-label">GiveIntegral</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.GiveIntegral)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

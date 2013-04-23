@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+.page-path{ height:30px; line-height:30px; padding-left:50px; background:#fff; }
+.page-path a,.page-path span{ float:left; display:block; height:30px; line-height:30px; }
+.homeLink{ background:url(../images/other/icon-bg.png) -46px 0px no-repeat; width:14px;}
+
+.saleRoom .side{ width:170px; padding-left:50px; position:relative; border-top:1px dotted #7d6c5c;  margin-left:20px; margin-top:50px;color:#7d7d7d;}
+.side-tit{width:23px; height:135px; display:block; background-color:#7e6b5a; border-top:8px solid #fbcd32; text-align:center;  position:absolute; top:-8px; left:0; }
+.side-tit span{ display:block; height:20px;}
+.side-tit a{font-weight:bold; color:#fff;}
+
+.menu-one h3{ font-family:'Microsoft YaHei';font-weight:bold; font-size:14px; height:30px; line-height:30px; color:#5a4740;}
+.menu-one li{  line-height:30px;}
+
+.saleRoom .main{ width:720px; /*border:1px solid #7e6b5a; border-bottom:none; border-right:none;*/}
+.filter{ height:16px; line-height:16px; text-align:right;}
+.whereItem a{ background:url(../images/other/icon-bg.png) -3px -56px no-repeat; display:block; width:57px; height:16px; float:left; text-align:center; line-height:16px; margin-right:10px;}
+.whereItem a.top,.whereItem a.top:hover{background:url(../images/other/icon-bg.png) -3px -76px no-repeat; }
+/*.whereItem a:hover,.whereItem a.hover{ background:url(../images/other/icon-bg.png) -3px -37px no-repeat; display:block; width:57px; height:16px; float:left; text-align:center; line-height:16px;}*/
+.pager { height:16px; line-height:16px;}
+.pager a{ color:#5a493f; font-weight:bold; width:16px; height:16px; display:block; float:left; width:16px; height:16px; text-align:center; margin-left:10px;}
+.pager a.hover{ border:1px solid #51493f; background-color:#FF0;}
+
+.mall-list{}
+.mall-list li{ display:block; /*background:pink;*/ width:160px; height:290px; float:left; margin-left:15px; margin-top:15px; text-align:center;}
+.mall-list a.img{ display:block; width:162px; height:162px; background:url(../images/other/icon02.gif);}
+.mall-list p{ text-align:left; line-height:24px; color:#7d7d7d;}
+.mall-list strong a{ font-weight:bold; color:#594840;}
+.mall-list span a{ display:block; width:57px; height:16px; float:left; text-align:center; margin-left:15px; background:url(../images/other/icon-bg.png) -3px -463px no-repeat; text-indent:-9999px; margin-top:10px;}
+.mall-list span a.frameIt{ background:url(../images/other/icon-bg.png) -3px -438px no-repeat;}
