@@ -52,8 +52,8 @@
                 <td class="f14 fb txt574841">价格</td>
               </tr>
               <tr>
-                <td id="curSize">@Model.PrintSize.First().Width.ToString()×@Model.PrintSize.First().Height.ToString()cm</td>
-                <td><span id="curPrice" class="txt-red fb txtRed">￥@Model.PrintSize.First().Price.ToString()</span></td>
+                <td id="curSize">@Model.ChosenSize.Width.ToString()×@Model.ChosenSize.Height.ToString()cm</td>
+                <td><span id="curPrice" class="txt-red fb txtRed">￥@Model.ChosenSize.Price.ToString()</span></td>
               </tr>
             </table>
             
@@ -78,12 +78,12 @@
                 <input type="hidden" id="GoodsID" name="GoodsID" value="@Model.Paint.ID" />
                 <input type="hidden" id="isFrame" name="IsFrame" value="false" />
                 <input type="hidden" id="FrameId" name="FrameId" value="1" />
-                <input type="hidden" id="PaintSizeId" name="PaintSizeId" value="1" />
+                <input type="hidden" id="PaintSizeId" name="PaintSizeId" value="@Model.ChosenSize.ID" />
                 <input type="hidden" id="Others" name="Others" value="0" />
                 <table class="mb50 buy-bar" width="100%" border="0">
 					<tr>
                     	<td><a class="cart" id="addToCart" href="#">购物车</a></td>
-                    	<td><a href="#">Frame It</a></td>
+                    	<td><a id="FrameIt" href="">Frame It</a></td>
                     	<td><a href="#">加入收藏</a></td>
                     	<td><a href="#">浏览大图</a></td>
                     	<td><a href="#">放入实景</a></td>
@@ -189,6 +189,11 @@
         });
         $("#addToCart").click(function(){
             $("#cartForm").submit();
+            return false;
+        });
+
+        $("#FrameIt").click(function(){
+            window.location.href="@Url.Action("FrameIt","Frame")?goodId="+$("#GoodsID").val()+"&paintsizeId="+$("#PaintSizeId").val();
             return false;
         });
     })

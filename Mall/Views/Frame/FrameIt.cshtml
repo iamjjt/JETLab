@@ -1,0 +1,177 @@
+﻿@model Mall.ViewModels.PaintFrameViewModel
+
+@{
+    ViewBag.Title = "FrameIt";
+}
+
+@section HeadStyle{
+    <link href="@Url.Content("~/css/saleroom.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/css/buy.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/css/jquery.jqzoom.css")" rel="stylesheet" type="text/css" />
+}
+@section HeadScript{
+    <script src="@Url.Content("~/Scripts/jquery.LoadImage.js")" type="text/javascript"></script>
+<script type="text/javascript" src="@Url.Content("~/scripts/jquery.jqzoom-core.js")"></script>
+}
+
+@section PagePath{
+<!--path:start-->
+<div class="page-path">
+    <a href="#" class="homeLink"></a><span>--</span><a href="#" class="linkOne">馆藏高仿</a><span>--</span><a href="#" class="linkTwo">山水</a><span>--</span><a href="#" class="linkTwo">《金藻图》明·缪辅</a>
+</div>
+<!--path:end-->
+}
+<div id="container">
+
+<div class="buy">
+    	<!--proAttr:start-->
+    	<div class="pro-img fl">
+       	  @**@
+          <table style="width:500px; height:440px;">
+          <tr>
+            <td align="center" valign="middle"><a href="#" class="t-img"><img src="@Url.Content("~")@Model.Paint.Img" /></a></td>
+          </tr>
+          </table>
+        </div>
+        <div class="pro-attr fl">
+    <table class="pro-details" width="100%" border="0">
+              <tr>
+                <td height="40" class="tc fb" style="color:#000;">@Model.Paint.Name</td>
+              </tr>
+              <tr>
+                <td height="25" class="tc">@Model.Paint.Summary</td>
+              </tr>
+              <tr>
+                <td height="25" class="tc">编号#：<span class="fb">@Model.Paint.NO</span></td>
+              </tr>
+              <tr>
+                <td height="25"  valign="bottom" class="f14 tc txt574841 fb">您现在的选择</td>
+              </tr>
+              <tr>
+                <td height="10"  valign="bottom" class="f14 tc txt574841 fb">&nbsp;</td>
+              </tr>
+              <tr>
+                <td><table width="100%" border="0">
+                  <tr class="bgEEE">
+                    <td width="20%" height="30">&nbsp;</td>
+                    <td width="20%">画框尺寸：</td>
+                    <td width="60%">@Model.ChosenSize.Width×@Model.ChosenSize.Height cm</td>
+                  </tr>
+                  <tr>
+                    <td height="30">&nbsp;</td>
+                    <td>画框材质：</td>
+                    <td>SOHO 红木</td>
+                  </tr>
+                  <tr class="bgEEE">
+                    <td height="30">&nbsp;</td>
+                    <td>卡纸1：</td>
+                    <td>灰色</td>
+                  </tr>
+                  <tr>
+                    <td height="30">&nbsp;</td>
+                    <td>卡纸2：</td>
+                    <td>金色</td>
+                  </tr>
+                  <tr class="bgEEE">
+                    <td height="30">&nbsp;</td>
+                    <td>卡纸3：</td>
+                    <td>米黄色</td>
+                  </tr>
+                  <tr>
+                    <td height="30">&nbsp;</td>
+                    <td>玻璃材质：</td>
+                    <td>3mm强化玻璃</td>
+                  </tr>
+                  <tr class="bgEEE">
+                    <td height="30">&nbsp;</td>
+                    <td>装框价格：</td>
+                    <td>￥4299.00</td>
+                  </tr>
+                  <tr>
+                    <td height="30">&nbsp;</td>
+                    <td>画心价格：</td>
+                    <td>￥3800.00</td>
+                  </tr>
+                </table></td>
+              </tr>
+              <tr class="bgEEE">
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td height="40" align="center" valign="middle"><input type="button" class="btnBuy buyCur" value="购买我的选择" name="btnBuy" /></td>
+              </tr>
+              <tr>
+                <td height="40" align="center" valign="middle"><input type="button" class="btnBuy" value="我仅购买画心" name="btnBuyOnlyPaint" /></td>
+              </tr>
+            </table>
+  </div>
+        <div class="cl"></div>
+        <!--proAttr:end-->
+        <!--frame:start-->
+        <div class="frame">
+       	  <div class="frame-tit">
+          	<a href="#">画框变换</a>
+          	<a href="#">卡纸变换</a>
+          	<a href="#">墙纸变换</a>
+          	<a href="#">色彩墙</a>
+          	<a href="#">玻璃选择</a>
+          	<a href="#">放入实景</a>
+          	<span>再来</span>
+          </div>
+          <div class=" frame-item">
+          	<div class="fl bar-01"><a href="#"><img src="images/other/icon-01.jpg" /></a></div>
+          	<ul class="items fl">
+                
+               @foreach (var item in Model.FrameList)
+               {
+                    <li>
+                    <img class="frameBar" frameId="@item.ID" src="@Url.Content("~")@item.Thumb" />
+                    <a href="#">@item.Name</a>
+                    </li>
+               }
+            </ul>
+            <script type="text/javascript">
+                $(function () {
+                    $(".frameBar").each(function (index) {
+                        $(this).click(function () {
+                            alert($(this).attr("frameId"));
+                        });
+                    });
+                })
+            </script>
+          	<div class="fr bar-01"><a href="#"><img src="images/other/icon-02.jpg" /></a></div>
+            <div class="cl"></div>
+          </div>
+          <div class="user-love">
+          	<ul class="ul-02">
+            	<li class="hover"><a href="#">用户最喜欢(29)</a></li>
+            	<li><a href="#">用户最喜欢(29)</a></li>
+            	<li><a href="#">用户最喜欢(29)</a></li>
+            	<li><a href="#">用户最喜欢(29)</a></li>
+            	<li><a href="#">用户最喜欢(29)</a></li>
+            </ul>
+          </div>
+       	  <div class="cl"></div>
+        </div>
+      <div class="mt10"><a href="#" style="float:right;" class="top"></a></div>
+        <!--frame:end-->
+        
+        <div class="cl"></div>
+    </div>
+
+@section FooterScript{
+
+$(function() {
+            //图片垂直居中
+            $(".pro-img .t-img img").each(function() {
+                src = $(this).attr("src");
+                $(this).LoadImage(true, 314, 479, "../images/other/loading.gif");
+            })
+            $(".ul-01 img").each(function() {
+                src = $(this).attr("src");
+                $(this).LoadImage(true, 98, 150, "../images/other/loading.gif");
+            })
+			
+        })
+
+}

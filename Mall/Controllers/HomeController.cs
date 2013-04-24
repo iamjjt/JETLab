@@ -20,16 +20,16 @@ namespace Mall.Controllers
             IList<SalerRoomGoods> modelList = new List<SalerRoomGoods>();
             db.Goods.OrderByDescending(m => m.ID).ToList().ForEach(g =>
             {
-                modelList.Add(new SalerRoomGoods(g, db.PaintSizes.Where(p => p.GoodsID == g.ID).ToList()));
+                modelList.Add(new SalerRoomGoods(g));
             });
             return View(modelList);
         }
 
         public ActionResult Details(int id)
         {
-            SalerRoomGoods model = new SalerRoomGoods();
-            model.Paint = db.Goods.First(g => g.ID == id);
-            model.PrintSize = db.PaintSizes.Where(p => p.GoodsID == id).ToList();
+            SalerRoomGoods model = new SalerRoomGoods(id);
+            //model.Paint = db.Goods.First(g => g.ID == id);
+            //model.PrintSize = db.PaintSizes.Where(p => p.GoodsID == id).ToList();
             return View(model);
         }
 

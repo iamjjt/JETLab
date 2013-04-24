@@ -23,9 +23,13 @@ namespace Mall.Models
             context.PaintSizes.Add(new PaintSizes { Cycle = "1天", GoodsID = 1, Width = 94.5m, Height = 123.8m, Price = 5330.00m });
             //添加品牌
             context.Brand.Add(new Brand { IsShow=true, logo="", Name="壁彩九天", SortOrder=1, Summary="壁彩九天" });
-
+            //添加供货商
             context.Suppliers.Add(new Suppliers { IsCheck=true, Name="潘家园", Summary="潘家园" });
-            context.Frames.Add(new Frames { ID=0, Enabled=false, Img="", Name="无边框", Price=decimal.Zero, Summary="没有装框"});
+            //添加框
+            context.Frames.Add(new Frames { Enabled=false, Img="", Name="无边框", Thumb="images/public/NOFRAME.jpg", EnName="NoFrame", Price=decimal.Zero, Summary="没有装框"});
+            context.Frames.Add(new Frames { EnName = "frm-001", Img = "Frames/frm-001/f1.png", Name = "边框1", Price = 100m, Summary = "边框1", Thumb = "Frames/frm-001/fs1.png", Enabled = true });
+            context.Frames.Add(new Frames { EnName = "frm-002", Img = "Frames/frm-002/f2.png", Name = "边框2", Price = 150m, Summary = "边框2", Thumb = "Frames/frm-002/fs2.png", Enabled = true });
+
             base.Seed(context);
         }
     }

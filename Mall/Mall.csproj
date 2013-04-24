@@ -74,6 +74,7 @@
     <Compile Include="Areas\SysManagement\Controllers\PaintSizesController.cs" />
     <Compile Include="Areas\SysManagement\Controllers\SuppliersController.cs" />
     <Compile Include="Areas\SysManagement\SysManagementAreaRegistration.cs" />
+    <Compile Include="Controllers\FrameController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
     <Compile Include="Global.asax.cs">
@@ -93,6 +94,7 @@
     <Compile Include="Models\Suppliers.cs" />
     <Compile Include="Models\Users.cs" />
     <Compile Include="ViewModels\HasChildrenCategory.cs" />
+    <Compile Include="ViewModels\PaintItem.cs" />
     <Compile Include="ViewModels\SalerRoomGoods.cs" />
     <Compile Include="Models\ViewModels\ShoppingCart.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -791,6 +793,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\SysManagement\Models\" />
     <Folder Include="Areas\SysManagement\Views\Shared\" />
+    <Folder Include="Frames\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -853,6 +856,7 @@
     <Content Include="Views\Home\SalerRoom.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
+    <Content Include="Views\Frame\FrameIt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
