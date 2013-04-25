@@ -501,6 +501,53 @@ namespace JETLib.Common
         #endregion
 
         #region 固定模板缩放图片
+        public static Image ScalingInMode(Image initImage, double modeWidth, double modeHeight)
+        {
+            //先计算缩略图大小（新值包括宽高正好合适的情况）
+            double tWidth = initImage.Width;
+            double tHeight = initImage.Height;//计算竖图或者横图
+            if (initImage.Width > initImage.Height || initImage.Width == initImage.Height)
+            {
+                if (initImage.Width > initImage.Height)
+                {
+                    //横图,宽按模板，高按比例缩放
+                    tWidth = modeWidth;
+                    tHeight = initImage.Height * (modeWidth / initImage.Width);
+                }
+            }
+            else
+            {
+                //竖图,高按模版，宽按比例缩放
+                tHeight = modeHeight;
+                tWidth = initImage.Width * (modeHeight / initImage.Height);
+            }
+
+            //新建一个bmp图片(缩略图)
+            System.Drawing.Image tImage = new System.Drawing.Bitmap((int)tWidth, (int)tHeight);
+            //新建一个画板
+            System.Drawing.Graphics tG = System.Drawing.Graphics.FromImage(tImage);
+            //设置质量
+            tG.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            tG.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            //重置背景色
+            tG.Clear(Color.White);
+
+            //设置矩形
+            //System.Drawing.Rectangle destRect = new Rectangle(0, 0, modeWidth, modeHeight);
+            //System.Drawing.Rectangle srcRect = new Rectangle(0,0,newWidth,newHeight);
+
+            //画缩略图
+            tG.DrawImage(initImage, new System.Drawing.Rectangle(0, 0, tImage.Width, tImage.Height), new System.Drawing.Rectangle(0, 0, initImage.Width, initImage.Height), System.Drawing.GraphicsUnit.Pixel);
+            //将缩略图放进模板
+            System.Drawing.Image modeImage = new System.Drawing.Bitmap((int)modeWidth, (int)modeHeight);
+            System.Drawing.Graphics mG = System.Drawing.Graphics.FromImage(modeImage);
+            mG.Clear(Color.White);
+            mG.DrawImage(tImage, (int)((modeWidth - tWidth) / 2), (int)((modeHeight - tHeight) / 2));
+            tG.Dispose();
+
+            return tImage;
+        }
+
         public static void ScalingInMode(System.Web.HttpPostedFileBase postFile, string savePath, double modeWidth, double modeHeight, string watermarkText, string watermarkImage)
         {
             #region 创建目录

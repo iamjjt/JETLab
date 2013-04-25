@@ -857,6 +857,7 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\ShoppingCart\Index.cshtml" />
     <Content Include="Views\Frame\FrameIt.cshtml" />
+    <Content Include="Views\Frame\FramePaint.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

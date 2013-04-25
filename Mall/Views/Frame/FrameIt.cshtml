@@ -27,9 +27,9 @@
     	<!--proAttr:start-->
     	<div class="pro-img fl">
        	  @**@
-          <table style="width:500px; height:440px;">
+          <table style="width:500px; height:500px;">
           <tr>
-            <td align="center" valign="middle"><a href="#" class="t-img"><img src="@Url.Content("~")@Model.Paint.Img" /></a></td>
+            <td align="center" valign="middle"><a href="#" class="t-img"><img id="framePaintMode" style=" max-width:440px; max-height:440px;" src="@Url.Content("~")@Model.Paint.Img" /></a></td>
           </tr>
           </table>
         </div>
@@ -129,12 +129,14 @@
                     <a href="#">@item.Name</a>
                     </li>
                }
-            </ul>
+            </ul>"@Url.Action("FramePaint", "Frame")?gid=&fid="
             <script type="text/javascript">
                 $(function () {
                     $(".frameBar").each(function (index) {
                         $(this).click(function () {
-                            alert($(this).attr("frameId"));
+                            //alert($(this).attr("frameId"));
+                            $("#framePaintMode").attr({ "src": "/frame/framepaint?gid=1&fid="+$(this).attr("frameId") });
+//                            $(this).LoadImage(true, 314, 479, "../images/other/loading.gif");
                         });
                     });
                 })
@@ -163,10 +165,10 @@
 
 $(function() {
             //图片垂直居中
-            $(".pro-img .t-img img").each(function() {
+           @* $(".pro-img .t-img img").each(function() {
                 src = $(this).attr("src");
-                $(this).LoadImage(true, 314, 479, "../images/other/loading.gif");
-            })
+                $(this).LoadImage(true, 500, 500, "../images/other/loading.gif");
+            })*@
             $(".ul-01 img").each(function() {
                 src = $(this).attr("src");
                 $(this).LoadImage(true, 98, 150, "../images/other/loading.gif");
