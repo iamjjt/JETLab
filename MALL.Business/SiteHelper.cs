@@ -552,6 +552,7 @@ namespace Mall.Business
 
         #region 允许上传附件类型
         public const string SITE_ATTACHMENT_TYPE = "jpg,gif,png";
+        public const int FRAME_SPACE_PAINT = 100;
         #endregion
     }
 }

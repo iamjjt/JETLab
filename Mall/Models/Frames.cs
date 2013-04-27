@@ -19,5 +19,9 @@ namespace Mall.Models
         public bool Enabled { get; set; }
         public string Img { get; set; }
         public string Thumb { get; set; }
+        /// <summary>
+        /// 边框宽度，默认像素
+        /// </summary>
+        public int Width { get; set; }
     }
 }

@@ -11,7 +11,8 @@
 }
 @section HeadScript{
     <script src="@Url.Content("~/Scripts/jquery.LoadImage.js")" type="text/javascript"></script>
-<script type="text/javascript" src="@Url.Content("~/scripts/jquery.jqzoom-core.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/scripts/jquery.jqzoom-core.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/artDialog/jquery.artDialog.js?skin=default")"></script>
 }
 
 @section PagePath{
@@ -29,7 +30,12 @@
        	  @**@
           <table style="width:500px; height:500px;">
           <tr>
-            <td align="center" valign="middle"><a href="#" class="t-img"><img id="framePaintMode" style=" max-width:440px; max-height:440px;" src="@Url.Content("~")@Model.Paint.Img" /></a></td>
+            <td align="center" valign="middle"><a href="#" class="t-img" id="showOPaint"><img id="framePaintMode" style=" max-width:440px; max-height:440px;" src="@Url.Content("~")@Model.Paint.Img" /></a></td>
+            <script type="text/javascript">
+                $(function () {
+                   
+                })
+            </script>
           </tr>
           </table>
         </div>
@@ -129,16 +135,22 @@
                     <a href="#">@item.Name</a>
                     </li>
                }
-            </ul>"@Url.Action("FramePaint", "Frame")?gid=&fid="
+            </ul>
+            <input type="hidden" id="chosenFrame" value="1" />
             <script type="text/javascript">
                 $(function () {
                     $(".frameBar").each(function (index) {
                         $(this).click(function () {
                             //alert($(this).attr("frameId"));
-                            $("#framePaintMode").attr({ "src": "/frame/framepaint?gid=1&fid="+$(this).attr("frameId") });
-//                            $(this).LoadImage(true, 314, 479, "../images/other/loading.gif");
+                            var frameId = $(this).attr("frameId");
+                            $("#framePaintMode").attr({ "src": "/frame/framepaint?gid=1&fid=" + frameId });
+
+                            $("#chosenFrame").val(frameId);
+                            //                         frameIdis).LoadImage(true, 314, 479, "../images/other/loading.gif");
                         });
                     });
+
+                    $("#showOPaint").dialog({ content: "<img src='/frame/framepaint?gid=1&fid=" + $("#chosenFrame").val() + "' />", cache: false, title: "/frame/framepaint?gid=1&fid=" + $("#chosenFrame").val() });
                 })
             </script>
           	<div class="fr bar-01"><a href="#"><img src="images/other/icon-02.jpg" /></a></div>

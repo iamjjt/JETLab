@@ -27,8 +27,8 @@ namespace Mall.Models
             context.Suppliers.Add(new Suppliers { IsCheck=true, Name="潘家园", Summary="潘家园" });
             //添加框
             context.Frames.Add(new Frames { Enabled=false, Img="", Name="无边框", Thumb="images/public/NOFRAME.jpg", EnName="NoFrame", Price=decimal.Zero, Summary="没有装框"});
-            context.Frames.Add(new Frames { EnName = "frm-001", Img = "Frames/frm-001/f1.png", Name = "边框1", Price = 100m, Summary = "边框1", Thumb = "Frames/frm-001/fs1.png", Enabled = true });
-            context.Frames.Add(new Frames { EnName = "frm-002", Img = "Frames/frm-002/f2.png", Name = "边框2", Price = 150m, Summary = "边框2", Thumb = "Frames/frm-002/fs2.png", Enabled = true });
+            context.Frames.Add(new Frames { EnName = "frm-001", Img = "Frames/frm-001/f1.png", Name = "边框1", Price = 100m, Summary = "边框1", Thumb = "Frames/frm-001/fs1.png", Enabled = true, Width=50});
+            context.Frames.Add(new Frames { EnName = "frm-002", Img = "Frames/frm-002/f2.png", Name = "边框2", Price = 150m, Summary = "边框2", Thumb = "Frames/frm-002/fs2.png", Enabled = true, Width=80});
 
             base.Seed(context);
         }
