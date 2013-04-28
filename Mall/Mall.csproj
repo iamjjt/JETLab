@@ -87,6 +87,7 @@
     <Compile Include="Models\Goods.cs" />
     <Compile Include="Models\MallDB.cs" />
     <Compile Include="Models\MallDbInitializer.cs" />
+    <Compile Include="Models\Order.cs" />
     <Compile Include="Models\PaintSizes.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Payment.cs" />

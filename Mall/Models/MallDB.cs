@@ -27,6 +27,19 @@ namespace Mall.Models
         public DbSet<PaintSizes> PaintSizes { get; set; }
 
         public DbSet<Cart> Carts { get; set; }
+
         public DbSet<Frames> Frames { get; set; }
+
+        public DbSet<Shipping> Shippings { get; set; }
+
+        public DbSet<Payment> Payments { get; set; }
+
+        public DbSet<Order> Orders { get; set; }
+
+        public DbSet<UserAddress> UserAddresses { get; set; }
+
+        public DbSet<Users> Users { get; set; }
+
+
     }
 }
